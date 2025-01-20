@@ -1,0 +1,115 @@
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import axios, { AxiosResponse } from 'axios';
+
+const API_URL = 'https://crudcrud.com/api/8dd340324dfa4a99b47c40ea138f29da/todos';
+
+interface Todo {
+  _id?: string;
+  text: string;
+}
+
+function App() {
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [newTodo, setNewTodo] = useState<string>('');
+  const [editIndex, setEditIndex] = useState<number | null>(null);
+  const [editTodo, setEditTodo] = useState<string>('');
+
+  useEffect(() => {
+    axios.get<Todo[]>(API_URL).then((response: AxiosResponse<Todo[]>) => {
+      setTodos(response.data);
+    });
+  }, []);
+
+  const handleAddTodo = () => {
+    if (newTodo.trim()) {
+      const todo = { text: newTodo };
+      axios.post<Todo>(API_URL, todo).then((response: AxiosResponse<Todo>) => {
+        setTodos([...todos, response.data]);
+        setNewTodo('');
+      });
+    }
+  };
+
+  const handleDeleteTodo = (id: string | undefined) => {
+    if (id) {
+      axios.delete(`${API_URL}/${id}`).then(() => {
+        setTodos(todos.filter((todo) => todo._id !== id));
+      });
+    }
+  };
+
+  const handleEditTodo = (index: number) => {
+    setEditIndex(index);
+    setEditTodo(todos[index].text);
+  };
+
+  const handleUpdateTodo = () => {
+    if (editTodo.trim() && editIndex !== null) {
+      const updatedTodo = { text: editTodo };
+      const id = todos[editIndex]._id;
+      if (id) {
+        axios.put(`${API_URL}/${id}`, updatedTodo).then(() => {
+          const updatedTodos = todos.map((todo, i) =>
+            i === editIndex ? { ...todo, text: editTodo } : todo
+          );
+          setTodos(updatedTodos);
+          setEditIndex(null);
+          setEditTodo('');
+        });
+      }
+    }
+  };
+
+  return (
+    <div className="app-container">
+      <div className="todo-app">
+        <h1 className="text-center mb-4">Todo List</h1>
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Add a new todo"
+            value={newTodo}
+            onChange={(e) => setNewTodo(e.target.value)}
+          />
+          <button className="btn btn-primary" onClick={handleAddTodo}>
+            Add
+          </button>
+        </div>
+        <ul className="list-group">
+          {todos.map((todo, index) => (
+            <li key={todo._id} className="list-group-item d-flex justify-content-between align-items-center">
+              {editIndex === index ? (
+                <input
+                  type="text"
+                  className="form-control"
+                  value={editTodo}
+                  onChange={(e) => setEditTodo(e.target.value)}
+                />
+              ) : (
+                <span>{todo.text}</span>
+              )}
+              <div>
+                {editIndex === index ? (
+                  <button className="btn btn-success btn-sm me-2" onClick={handleUpdateTodo}>
+                    Update
+                  </button>
+                ) : (
+                  <button className="btn btn-warning btn-sm me-2" onClick={() => handleEditTodo(index)}>
+                    Edit
+                  </button>
+                )}
+                <button className="btn btn-danger btn-sm" onClick={() => handleDeleteTodo(todo._id)}>
+                  Delete
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export default App;

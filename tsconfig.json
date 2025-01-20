@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom"
+    ],
+    "target": "ESNext", // Use modern JavaScript syntax
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ], // Include browser and ES features
+    "allowJs": true, // Allow JavaScript files to be compiled
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "esModuleInterop": true, // Enable interoperability between CommonJS and ESModules
+    "allowSyntheticDefaultImports": true, // Allow default imports even if not present in the module
+    "strict": true, // Enable all strict type-checking options
+    "forceConsistentCasingInFileNames": true, // Ensure file names are case-sensitive
+    "module": "ESNext", // Use ESNext module resolution
+    "moduleResolution": "Node", // Resolve modules like Node.js
+    "isolatedModules": true, // Treat each file as a separate module
+    "noEmit": true, // Don't emit compiled JavaScript files
+    "jsx": "react-jsx" // Use the modern JSX transform (React 17+)
+  },
+  "include": [
+    "src"
+  ], // Include all TypeScript and TSX files in the src directory
+  "exclude": [
+    "node_modules",
+    "build"
+  ] // Exclude unnecessary directories
+}
