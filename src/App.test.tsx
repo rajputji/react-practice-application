@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react'; // Update import statement
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';

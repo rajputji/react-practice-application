@@ -15,15 +15,34 @@ interface Product {
   category: string;
 }
 
+const Shimmer: React.FC = () => (
+  <div className="container mt-5">
+    <div className="row">
+      <div className="col-md-6">
+        <div className="shimmer-image"></div>
+      </div>
+      <div className="col-md-6">
+        <div className="shimmer-title"></div>
+        <div className="shimmer-price"></div>
+        <div className="shimmer-description"></div>
+        <div className="shimmer-button"></div>
+      </div>
+    </div>
+  </div>
+);
+
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get<Product>(`${API_URL}/${id}`).then((response) => {
+    const fetchProduct = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 5000)); // 5-second delay
+      const response = await axios.get<Product>(`${API_URL}/${id}`);
       setProduct(response.data);
-    });
+    };
+    fetchProduct();
   }, [id]);
 
   const handleAddToCart = () => {
@@ -33,7 +52,7 @@ const ProductDetails: React.FC = () => {
   };
 
   if (!product) {
-    return <p>Loading...</p>;
+    return <Shimmer />;
   }
 
   return (

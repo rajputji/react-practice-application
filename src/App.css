@@ -86,3 +86,91 @@ button.btn {
     transform: rotate(360deg);
   }
 }
+
+.shimmer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shimmer-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shimmer-image,
+.shimmer-title,
+.shimmer-price,
+.shimmer-description {
+  background: #f6f7f8;
+  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  display: inline-block;
+  position: relative;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.shimmer-image {
+  width: 100%;
+  height: 300px;
+}
+
+.shimmer-title {
+  width: 60%;
+  height: 20px;
+}
+
+.shimmer-price {
+  width: 30%;
+  height: 20px;
+}
+
+.shimmer-description {
+  width: 100%;
+  height: 60px;
+}
+
+.shimmer-button {
+  width: 100px;
+  height: 40px;
+  background: #f6f7f8;
+  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  display: inline-block;
+  position: relative;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 5px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -800px 0;
+  }
+  100% {
+    background-position: 800px 0;
+  }
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-spinner {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
