@@ -14,7 +14,6 @@ const ProductList: React.FC = () => {
 
   return (
     <div className="container mt-5">
-      <h1 className="text-center mb-4">Product Listing</h1>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <div className="row">
