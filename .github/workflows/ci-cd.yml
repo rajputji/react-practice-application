@@ -15,6 +15,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        persist-credentials: false
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -31,6 +33,10 @@ jobs:
       run: |
         git config --global user.email "abhishekrajput676@gmail.com"
         git config --global user.name "Abhishek Rajput"
+
+    - name: Authenticate with GitHub
+      run: |
+        echo "machine github.com login $GITHUB_ACTOR password ${{ secrets.GITHUB_TOKEN }}" > ~/.netrc
 
     - name: Deploy to GitHub Pages
       run: npm run deploy
