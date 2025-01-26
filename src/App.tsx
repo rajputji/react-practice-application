@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // Use HashRouter instead of BrowserRouter
 import { useDispatch } from 'react-redux';
 import Header from './components/Header';
 import LoadingSpinner from './components/LoadingSpinner';
