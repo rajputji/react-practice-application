@@ -1,9 +1,9 @@
 {
   "files": {
     "main.css": "/react-practice-application/static/css/main.340b9011.css",
-    "main.js": "/react-practice-application/static/js/main.31d4c35a.js",
-    "static/js/500.29471704.chunk.js": "/react-practice-application/static/js/500.29471704.chunk.js",
-    "static/js/724.2e4c1a80.chunk.js": "/react-practice-application/static/js/724.2e4c1a80.chunk.js",
+    "main.js": "/react-practice-application/static/js/main.e970c373.js",
+    "static/js/500.e79db0f8.chunk.js": "/react-practice-application/static/js/500.e79db0f8.chunk.js",
+    "static/js/724.a5bf6547.chunk.js": "/react-practice-application/static/js/724.a5bf6547.chunk.js",
     "static/js/800.8c5140c4.chunk.js": "/react-practice-application/static/js/800.8c5140c4.chunk.js",
     "static/js/147.23be14e1.chunk.js": "/react-practice-application/static/js/147.23be14e1.chunk.js",
     "static/js/885.b80cf9da.chunk.js": "/react-practice-application/static/js/885.b80cf9da.chunk.js",
@@ -11,9 +11,9 @@
     "static/media/app-logo.png": "/react-practice-application/static/media/app-logo.3ce42b61429545290f23.png",
     "index.html": "/react-practice-application/index.html",
     "main.340b9011.css.map": "/react-practice-application/static/css/main.340b9011.css.map",
-    "main.31d4c35a.js.map": "/react-practice-application/static/js/main.31d4c35a.js.map",
-    "500.29471704.chunk.js.map": "/react-practice-application/static/js/500.29471704.chunk.js.map",
-    "724.2e4c1a80.chunk.js.map": "/react-practice-application/static/js/724.2e4c1a80.chunk.js.map",
+    "main.e970c373.js.map": "/react-practice-application/static/js/main.e970c373.js.map",
+    "500.e79db0f8.chunk.js.map": "/react-practice-application/static/js/500.e79db0f8.chunk.js.map",
+    "724.a5bf6547.chunk.js.map": "/react-practice-application/static/js/724.a5bf6547.chunk.js.map",
     "800.8c5140c4.chunk.js.map": "/react-practice-application/static/js/800.8c5140c4.chunk.js.map",
     "147.23be14e1.chunk.js.map": "/react-practice-application/static/js/147.23be14e1.chunk.js.map",
     "885.b80cf9da.chunk.js.map": "/react-practice-application/static/js/885.b80cf9da.chunk.js.map",
@@ -21,6 +21,6 @@
   },
   "entrypoints": [
     "static/css/main.340b9011.css",
-    "static/js/main.31d4c35a.js"
+    "static/js/main.e970c373.js"
   ]
 }
